@@ -1,0 +1,275 @@
+body {
+    height:100%;
+    min-height: 100%;
+    background: white;
+    color: #FFFFFF;
+    position:relative;
+}
+
+header {
+    height:50px;
+    width:100%;
+    font-size: 2.5rem;
+    background-color: white;
+    text-shadow: 3px 0 #7e888e;
+    font-weight: 900;
+    top:0px;
+    left:0px;
+    color: black;
+    position:fixed;
+    text-align: center;
+}
+footer {
+    padding: 1%;
+    height:50px;
+    width:100%;
+    bottom:0px;
+    left:0px;
+    color:black;
+    background: white;
+    position:fixed;
+    text-align: center;
+}
+@media(min-width: 1000px) {
+    .container{
+        height: 80vmax;
+        display:flex;
+        color: white;
+        padding: 2.5%;
+        margin: 2.5%;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+       
+    } 
+
+    
+    .left{
+        border-radius: 15px;
+        border: 5%;
+        background-color: black;
+        padding: 5%;
+        margin: 2.5%;
+    }
+    
+      
+    
+    .right{
+        border-radius: 15px;
+
+        background-color: black;
+        border: 5%;
+        margin: 2.5%;
+        padding: 5%;
+        margin-right: 2.5%;
+    
+    }
+    .img{
+        border-radius: 5%;
+        width:"50px";
+        height:"50px"
+
+    
+    }
+    .mail{
+        display: -moz-inline-stack;
+    }
+    
+    .bottom{
+        display: flex;
+    
+       
+    }
+    
+    
+    
+}
+
+@media(max-width:1000px ) and (min-width:600px) {
+    .container{
+        display:grid;
+        color: white;
+        padding: 5%;
+        margin: 2.5%;
+
+    } 
+    .left{
+        border-radius: 5px;
+    
+        background-color: black;
+        padding: 12.5%;
+        margin-left: 5%;
+        
+        margin: 2.5%;
+    
+    
+    }
+    
+    .right{
+        border-radius: 5px;
+
+        background-color: black;
+        border: 5%;
+        margin: 2.5%;
+        padding: 5%;
+        margin-right: 2.5%;
+    }
+    .img{
+        width:"50px";
+        height:"50px" ;
+        border-radius: 5%;
+
+    }
+    .mail{
+        display: -moz-inline-stack;
+    }
+    
+    .bottom{
+        display: flex;
+    
+       
+    }
+    h1 {
+        font-family: 'Abril Fatface', cursive;
+        text-align: center;
+    }
+    
+}
+
+@media ( max-width:600px){
+    .container{
+        display:grid;
+        color: white;
+        padding: 5%;
+        margin: 2.5%;
+        border-radius: 5px;
+
+    } 
+    #senderEmail{
+        size:"30%";
+    }
+    
+    .left{
+        background-color: black;
+        padding: 10%;
+        margin-left: 0%;
+        
+        margin: 2.5%;
+    
+    
+    }
+    .img{
+        width:250px;
+        height:250px;
+        border-radius: 10px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+       
+    }
+    .right{
+        background-color: black;
+        margin: 2.5%;
+        padding: 5%;
+        margin-right: 2.5%;
+    }
+    div.valid
+        {   
+            /* overflow:scroll; */
+            margin:4px, 4px;
+            padding:4px;
+            background-color: black;
+            width: 125px;
+            height: 150px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            text-align:justify;
+    }
+    
+    div.invalid
+        {
+            
+            margin:4px, 4px;
+            padding:4px;
+            background-color: black;
+            width: 125px;
+            height: 150px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            text-align:justify;
+            
+    }
+
+
+    
+}
+
+
+
+
+.mail{
+    display: -moz-inline-stack;
+}
+
+.bottom{
+    display: flex;
+}
+h1 {
+    
+    text-align: center;
+    text-shadow: 2px 0 ;
+    text-shadow: 2px 2px 4px #d6301a;
+
+
+}
+.btn{
+    padding: 10px;
+    margin: 10px;
+    background-color: #FFC700;
+    font-weight: bold;
+}
+
+div.valid
+    {
+       /* overflow:scroll; */
+       margin:4px, 4px;
+        padding:4px;
+        background-color: black;
+        width:auto;
+        height: 100px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        text-align:justify;
+    }
+    
+div.invalid
+    {
+       /* overflow:scroll; */
+        margin:4px, 4px;
+        padding:4px;
+        background-color: black;
+        width: auto;
+        height: 100px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        text-align:justify;
+        /* border-radius: 4px 0 4px 0; */
+}
+input{
+    max-width: 100%;
+
+}
+textarea {
+    max-width: 100%;
+}
+
+.social{
+    color: #aaaaaa;
+    transition: color 0.2s;
+    text-decoration:none;
+    margin-top: 2%;
+    margin-left: 10px;
+}
+.social:hover{
+    color: #333333;
+}
