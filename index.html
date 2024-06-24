@@ -2,188 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link  rel="stylesheet"  href="./style.css">
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <title>Mass Email Dispatcher - Home</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
 </head>
 <body>
-<div>
-    <header><div style=" background-color: white; text-align: center;">EXPOSYS DATA LABS</div></header>
+<div class="wrapper">
+    <header>
+        <div class="header-content">EXPOSYS DATA LABS</div>
+    </header>
     <div class="container">
-        
-        
         <div class="left">
-            <h1 class="main" style="font-style:Poiret One">
-                Mass Email Dispatcher
-            </h1>
-            
-            <img src="./img/email.img"  class="img"  >
-
-            <div class="content">
-                
-            </div>
-            
+            <img src="./img/title.jpg" class="email-img" alt="Email Image">
         </div>
-        <div class="right">
-            <form method="post">
-                
-                <div class="from" style="padding: 10px; margin: 10px;">
-                    <label for="senderEmail">From:</label>
-
-                    <input type="email" id="senderEmail" name="senderEmail" required size="50%">
-                </div>
-
-                <div class="subject" style="padding: 10px; margin: 10px;  position:relative;">
-                    <label for="subject" > Subject :</label>
-
-                    <textarea  cols="50%" id="subject" name="subject" required></textarea>
-                </div>
-                <div class="mail" style="padding: 10px; margin: 10px;">
-                    
-                    <label for="csvfile">CSV File:</label>
-                    <br>
-                    
-                    <input type="file" id="csvfile" name="csvfile"  placeholder="Upload your .csv file" accept=".csv" required>
-                    
-
-                   
-                </div>
-                <div class="message" style="padding: 10px; margin: 10px;">
-                    <label style="color:white;" for="message">Message :</label>
-
-                    <textarea id="message" name="message" cols="50%" rows=auto required></textarea>
-                </div>
-
-                <input type="button" class="btn" value="send Emails"  onclick ="sendEmails()"></button>
-        </form>
-
-        
-
-        <div  class="bottom"  style="display:flex">
-            <div  >
-              <p style="color: #a4c9e0;">Valid Emails: <span id="validEmailCount"></span></p>
-              <div id="validEmails" class="valid" style="float: left;"></div>
-            </div>
-            <div style="margin-left: 15px"  >
-              <p style="color: #a4c9e0;">Invalid Emails: <span id="invalidEmailCount"></span></p>
-              <div id="invalidEmails"  class="invalid" style="float: left"></div>
-            </div>
-          </div>
+        <div class="description right">
+            <h1 class="main-title">Mass Email Dispatcher</h1>
+            <p class="description-text">
+                Welcome to the Mass Email Dispatcher. This tool allows you to send emails to multiple recipients
+                efficiently by uploading a CSV file containing email addresses. It's perfect for businesses, newsletters,
+                and any situation where you need to send bulk emails quickly and easily.
+            </p>
+            <a href="send-email.html" class="btn">Go to Email Form</a>
         </div>
-        
     </div>
     <footer>
-        <a class="social"  href="https://github.com/MRameshNaik"  target="_blank">
+        <a class="social" href="https://github.com/MRameshNaik" target="_blank">
             <ion-icon name="logo-github"></ion-icon>MRameshNaik
         </a>
-        <a class="social"  href="https://www.linkedin.com/public-profile/settings?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact-info%3BX1IFv1IrQYGZI7pytuoUvA%3D%3D"  target="_blank">
+        <a class="social" href="https://www.linkedin.com/public-profile/settings?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact-info%3BX1IFv1IrQYGZI7pytuoUvA%3D%3D" target="_blank">
             <ion-icon name="logo-linkedin"></ion-icon>
         </a>
-        
-        
     </footer>
 </div>
-
-    <script type="text/javascript">
-        (function(){
-            //replace it with your emailjs userID
-            emailjs.init("ZNLlDJQrh77TnSOHb");
-        })();
-
-        function sendEmails(){
-            var senderEmail = document.getElementById("senderEmail").value;
-            var message = document.getElementById("message").value;
-            var subject = document.getElementById("subject").value;
-
-            var validEmails=[];
-            var invalidEmails=[];
-
-
-            //To read from csv file
-            var file = document.getElementById("csvfile").files[0];
-            var reader = new FileReader();
-            reader.readAsText(file);
-            reader.onload = function(event){
-                var csv = event.target.result;
-                var lines = csv.split('\n');
-                for (var i=0; i<lines.length; i++){
-                    var email = lines[i].trim();
-                    var emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,3}$/
-                    ;
-                    if (emailRegex.test(email)){
-                        validEmails.push(email);
-                    }else{
-                        invalidEmails.push(email);
-                    }
-                }
-
-                //Code to send emails to valid email addresses
-                for (var j = 0 ; j < validEmails.length; j++){
-                    var templateParams = {
-                        to_name: validEmails[j],
-                        from_name:senderEmail,
-                        message_html:message,
-                        subject_html:subject
-                    };
-
-                    //replace your service ID and Template ID below
-                    emailjs.send('service_u8jkmlk','template_8r05fzo',templateParams)
-                        .then(function(response){
-                            console.log("Success" , response);
-                        },function(error){
-                            console.log('Failed', error);
-                        });
-                }
-                alert("Emails sent to valid email addresses.")
-            };
-
-        }
-        
-    </script>
-
-    <script type="text/javascript">
-        document.getElementById("csvfile").addEventListener("change",function(){
-            var validEmails = [];
-            var invalidEmails = [];
-
-            //Read content of  csv file
-            var file = document.getElementById("csvfile").files[0];
-            var reader = new FileReader();
-            reader.readAsText(file);
-            reader.onload = function(event){
-                var csv = event.target.result;
-                var lines = csv.split('\n');
-                for (var i=0; i<lines.length; i++){
-                    var email = lines[i].trim();
-                    var emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,3}$/
-                        ;
-                    if (emailRegex.test(email)){
-                        validEmails.push(email);
-                    }else{
-                        invalidEmails.push(email);
-                    }
-                }
-                //To display valid and invalid emails
-
-                document.getElementById("validEmails").innerHTML = validEmails.join("<br><br>");
-                document.getElementById("invalidEmails").innerHTML = invalidEmails.join("<br><br>");
-                document.getElementById("validEmailCount").innerText = "(" + validEmails.length + ")";
-                document.getElementById("invalidEmailCount").innerText = "(" + invalidEmails.length + ")";
-                
-                
-            };
-
-
-
-        });
-
-    </script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
