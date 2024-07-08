@@ -26,6 +26,7 @@ header {
 
 .container {
     display: flex;
+    flex: 1;
     flex-wrap: wrap; /* Allow items to wrap to the next line */
     justify-content: center;
     align-items: center;
@@ -37,12 +38,16 @@ header {
     height: 300px;
 }
 .left, .right {
-    flex: 1;
+    flex: 1 1 45%;
     margin: 10px;
     padding: 20px;
     background: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
 }
 
 .left {
@@ -112,8 +117,7 @@ header {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-    display: block;
-    width: 100%;
+    width: 100%; /* Ensure button width matches parent */
     text-align: center;
     text-decoration: none;
     margin-top: 10px;
@@ -131,7 +135,6 @@ header {
 .back-btn:hover {
     background-color: #005bb5;
 }
-
 .email-counts {
     display: flex;
     flex-wrap: wrap; /* Ensure items wrap on smaller screens */
